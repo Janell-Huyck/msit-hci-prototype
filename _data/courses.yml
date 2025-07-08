@@ -25,8 +25,32 @@ it_electives:
     modality: In-Person
     track: Software
     credits: 3
+  - title: CYBER 6101 – Secure Systems Design
+    modality: Remote
+    track: Cybersecurity
+    credits: 3
+  - title: DATA 6201 – Data Warehousing
+    modality: Online
+    track: Data
+    credits: 3
+  - title: DEV 6301 – Front-End Frameworks
+    modality: In-Person
+    track: Software
+    credits: 3
 
 non_it_electives:
+  - title: MGMT 7001 – Organizational Behavior
+    modality: In-Person
+    track: Business
+    credits: 3
+  - title: LAW 7101 – Cyber Law
+    modality: Online
+    track: Legal
+    credits: 3
+  - title: EDUC 7201 – Tech in Education
+    modality: Remote
+    track: Education
+    credits: 3
   - title: MGMT 7001 – Organizational Behavior
     modality: In-Person
     track: Business
