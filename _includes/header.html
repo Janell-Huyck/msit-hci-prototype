@@ -1,24 +1,22 @@
-<div class="container mt-3">
-    <div class="row align-items-center">
-        <!-- Progress bar section (2/3 width) -->
-        <div class="col-md-8">
-            <div class="bg-light p-2 rounded">
-                <div class="progress" style="height: 24px;">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 50%;">
-                        <!-- Optional: Add animation classes like progress-bar-striped -->
-                    </div>
-                </div>
-                <div class="text-end mt-1" style="font-size: 0.9rem; color: #333;">
-                    15 of 30 credits completed
-                </div>
+<div class="container-fluid mt-3">
+    <div class="d-flex w-100 justify-content-between align-items-start">
+
+        <!-- Progress Bar Area (left-aligned) -->
+        <div class="bg-light p-2 rounded w-100 me-3" style="max-width: 75%;">
+            <div class="progress" style="height: 24px;">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 50%;"></div>
+            </div>
+            <div class="mt-1" style="font-size: 0.9rem; color: #333;">
+                15 of 30 credits completed
             </div>
         </div>
 
-        <!-- Email badge (1/3 width) -->
-        <div class="col-md-4 text-end">
-      <span class="badge bg-secondary p-2">
-        etran@uc.edu
-      </span>
+        <!-- User Email "Button" (right-aligned) -->
+        <div class="text-end">
+            <button class="btn btn-outline-secondary d-flex align-items-center">
+                etran@uc.edu
+                <span class="ms-2">&#9662;</span> <!-- ▼ caret -->
+            </button>
         </div>
     </div>
 </div>

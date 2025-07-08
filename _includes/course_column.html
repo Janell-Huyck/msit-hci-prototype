@@ -1,0 +1,14 @@
+<div class="col">
+    <div class="card h-100">
+        <!-- Column heading -->
+        <div class="card-body">
+            <h5 class="card-title text-center">{{ include.heading }}</h5>
+        </div>
+
+        <!-- Scrollable card list -->
+        <div class="card-body p-2" style="overflow-y: auto; max-height: 55vh;">
+            {% for course in include.courses %}{% include card.html title=course.title modality=course.modality track=course.track credits=course.credits %}{% endfor %}
+        </div>
+
+    </div>
+</div>
