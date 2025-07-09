@@ -1,75 +1,442 @@
 core:
-  - title: MSIT 6001 – Project Management
-    modality: In-Person
-    track: Core
-    credits: 3
-  - title: MSIT 6002 – Systems Analysis
+  - title: Information Technology Graduate Seminar
+    code: IT7001
     modality: Online
     track: Core
     credits: 3
-  - title: MSIT 6003 – IT Leadership
-    modality: Hybrid
-    track: Core
-    credits: 3
+    semesters:
+      - Fall
+      - Spring
+    description: Introduces graduate students to current research and professional practices in IT.
+    teacher: Dr. Karen Hill
+    taken: ''
 
-it_electives:
-  - title: CYBER 6101 – Secure Systems Design
-    modality: Remote
-    track: Cybersecurity
-    credits: 3
-  - title: DATA 6201 – Data Warehousing
+  - title: Information Technology Research Methods
+    code: IT7010C
     modality: Online
-    track: Data
+    track: Core
     credits: 3
-  - title: DEV 6301 – Front-End Frameworks
-    modality: In-Person
-    track: Software
-    credits: 3
-  - title: CYBER 6101 – Secure Systems Design
-    modality: Remote
-    track: Cybersecurity
-    credits: 3
-  - title: DATA 6201 – Data Warehousing
-    modality: Online
-    track: Data
-    credits: 3
-  - title: DEV 6301 – Front-End Frameworks
-    modality: In-Person
-    track: Software
-    credits: 3
+    semesters:
+      - Fall
+      - Spring
+    description: Covers qualitative and quantitative research techniques applicable to IT fields.
+    teacher: Dr. Omar Chen
+    taken: ''
 
-non_it_electives:
-  - title: MGMT 7001 – Organizational Behavior
-    modality: In-Person
-    track: Business
-    credits: 3
-  - title: LAW 7101 – Cyber Law
+  - title: Human Computer Interaction and Usability
+    code: IT7040C
     modality: Online
-    track: Legal
+    track: Core
     credits: 3
-  - title: EDUC 7201 – Tech in Education
-    modality: Remote
-    track: Education
-    credits: 3
-  - title: MGMT 7001 – Organizational Behavior
-    modality: In-Person
-    track: Business
-    credits: 3
-  - title: LAW 7101 – Cyber Law
-    modality: Online
-    track: Legal
-    credits: 3
-  - title: EDUC 7201 – Tech in Education
-    modality: Remote
-    track: Education
-    credits: 3
+    semesters:
+      - Spring
+    description: Focuses on interaction design, user experience, and usability testing in IT systems.
+    teacher: Dr. Emily Tran
+    taken: ''
 
 capstone:
-  - title: MSIT 7099 – Capstone Project
-    modality: Hybrid
-    track: Capstone
+  - title: IT Project
+    code: IT8010
+    modality: Online
+    track: Capstone/Thesis
+    credits: 3
+    semesters:
+      - Fall
+      - Spring
+      - Summer
+    description: Capstone project taken in final semester to synthesize program learning.
+    teacher: Dr. Brian Ellis
+    taken: ''
+
+  - title: Thesis Research
+    code: IT8020
+    modality: Online
+    track: Capstone/Thesis
     credits: 6
-  - title: MSIT 7999 – Master's Thesis
+    semesters:
+      - Fall
+      - Spring
+    description: Faculty-supervised research for students pursuing a thesis track.
+    teacher: Dr. Talia Simmons
+    taken: ''
+
+it_electives:
+  - title: Principles of Cybersecurity
+    code: IT7020C
+    modality: Online
+    track: Cybersecurity
+    credits: 3
+    semesters:
+      - Fall
+      - Spring
+    description: Introduces foundational cybersecurity principles, threat models, and risk mitigation strategies.
+    teacher: Dr. Alan Tate
+    taken: ''
+
+  - title: Enterprise Security and Forensics
+    code: IT7021C
+    modality: Online
+    track: Cybersecurity
+    credits: 3
+    semesters:
+      - Spring
+    description: Covers enterprise network protection and forensic analysis tools for threat identification.
+    teacher: Dr. Nina Zhao
+    taken: ''
+
+  - title: Technologies for Mobile Applications
+    code: IT7024C
+    modality: Online
+    track: Software
+    credits: 3
+    semesters:
+      - Fall
+    description: Explores mobile app frameworks, platform differences, and responsive design.
+    teacher: Prof. Eli Grant
+    taken: ''
+
+  - title: IT Infrastructure Sustainability
+    code: IT7027C
+    modality: Online
+    track: Infrastructure
+    credits: 3
+    semesters:
+      - Spring
+    description: Teaches sustainable IT planning, including energy use and system resilience.
+    teacher: Dr. Maria Liu
+    taken: ''
+
+  - title: Advanced Storage Technologies
+    code: IT7028C
+    modality: Online
+    track: Infrastructure
+    credits: 3
+    semesters:
+      - Fall
+    description: Focuses on enterprise storage architectures and virtualization in IT operations.
+    teacher: Dr. John Yates
+    taken: ''
+
+  - title: Advanced Systems Administration
+    code: IT7029C
+    modality: Online
+    track: Cybersecurity
+    credits: 3
+    semesters:
+      - Fall
+      - Spring
+    description: Examines enterprise system deployment, configuration, and security policy enforcement.
+    teacher: Dr. Rita Chang
+    taken: ''
+
+  - title: Games for Learning & Simulation
+    code: IT7030C
+    modality: Online
+    track: Games
+    credits: 3
+    semesters:
+      - Spring
+    description: Covers design and development of educational simulations using game engines.
+    teacher: Prof. Danny Ho
+    taken: ''
+
+  - title: Advanced Technologies for Game Development
+    code: IT7031C
+    modality: Online
+    track: Games
+    credits: 3
+    semesters:
+      - Fall
+    description: Focuses on modern game engines and collaborative dev workflows for 3D/VR platforms.
+    teacher: Dr. Jen Malik
+    taken: ''
+
+  - title: Machine Learning and Data Mining for IT
+    code: IT7071C
+    modality: Online
+    track: Cybersecurity
+    credits: 3
+    semesters:
+      - Fall
+      - Spring
+    description: Explores predictive modeling and anomaly detection in IT data streams.
+    teacher: Dr. Leo Finch
+    taken: ''
+
+  - title: Data Driven Cybersecurity
+    code: IT7075C
+    modality: Online
+    track: Cybersecurity
+    credits: 3
+    semesters:
+      - Spring
+    description: Applies data science methods to identify security threats in network traffic.
+    teacher: Dr. Sarah West
+    taken: ''
+
+  - title: Social Network Analysis - Visualization and Hypothesis Testing
+    code: IT8007
+    modality: Online
+    track: Data
+    credits: 3
+    semesters:
+      - Fall
+    description: Analyzes social networks using graph theory, visualization, and inferential stats.
+    teacher: Prof. Isaac Park
+    taken: ''
+
+  - title: Graduate Topics in Information Technology
+    code: IT7039
+    modality: Online
+    track: Flexible
+    credits: "1-6"
+    semesters:
+      - Fall
+      - Spring
+      - Summer
+    description: Covers rotating special topics in IT, such as blockchain, edge computing, and AR/VR.
+    teacher: Staff
+    taken: ''
+
+non_it_electives:
+  - title: Cybercrime
+    code: CJ6012
+    modality: Online
+    track: Criminal Justice
+    credits: 3
+    semesters:
+    - Fall
+    description: Explores types of cybercrime, investigative techniques, and legal frameworks.
+    teacher: Dr. Rachel Green
+    taken: ''
+
+  - title: Theory and Practice of Crime Prevention
+    code: CJ7070
+    modality: Online
+    track: Criminal Justice
+    credits: 3
+    semesters:
+    - Spring
+    description: Examines community-based and situational crime prevention strategies.
+    teacher: Dr. Jordan Brooks
+    taken: ''
+
+  - title: Artificial Intelligence
+    code: CS6033
     modality: In-Person
-    track: Thesis
-    credits: 6
+    track: Computer Science
+    credits: 3
+    semesters:
+    - Fall
+    description: Introduces AI concepts including search, logic, planning, and machine learning.
+    teacher: Dr. Maya Singh
+    taken: ''
+
+  - title: Machine Learning
+    code: CS6037
+    modality: In-Person
+    track: Computer Science
+    credits: 3
+    semesters:
+    - Spring
+    description: Covers supervised and unsupervised learning, with emphasis on algorithms and applications.
+    teacher: Dr. Aaron Kim
+    taken: ''
+
+  - title: Statistical Computing
+    code: BANA6043
+    modality: Online
+    track: Analytics
+    credits: 2
+    semesters:
+    - Fall
+    description: Applies statistical methods and R programming to real-world datasets.
+    teacher: Dr. Olivia Chen
+    taken: ''
+
+  - title: Intelligent Data Analysis
+    code: CS6052
+    modality: In-Person
+    track: Computer Science
+    credits: 3
+    semesters:
+      - Fall
+    description: Applies advanced analytical techniques for extracting insights from structured and unstructured data.
+    teacher: Dr. Xavier Nash
+    taken: ''
+
+  - title: Network Security
+    code: CS6053
+    modality: In-Person
+    track: Computer Science
+    credits: 3
+    semesters:
+      - Spring
+    description: Covers principles of secure network design, protocols, and threat mitigation strategies.
+    teacher: Dr. Emily Sorensen
+    taken: ''
+
+  - title: Information Retrieval
+    code: CS6054
+    modality: In-Person
+    track: Computer Science
+    credits: 3
+    semesters:
+      - Fall
+    description: Explores techniques for indexing, querying, and ranking large-scale textual data.
+    teacher: Dr. Michael Dinh
+    taken: ''
+
+  - title: Security Vulnerability Assessment
+    code: CS6056
+    modality: In-Person
+    track: Computer Science
+    credits: 3
+    semesters:
+      - Spring
+    description: Teaches tools and processes to identify, assess, and mitigate software and system vulnerabilities.
+    teacher: Dr. Sheila Ford
+    taken: ''
+
+  - title: Advanced Algorithms I
+    code: CS7081
+    modality: In-Person
+    track: Computer Science
+    credits: 3
+    semesters:
+      - Fall
+    description: Analyzes design and performance of algorithms for sorting, searching, and graph problems.
+    teacher: Dr. Omar Patel
+    taken: ''
+
+  - title: Health Informatics, Information Systems and Technology
+    code: HI7010
+    modality: Online
+    track: Health
+    credits: 3
+    semesters:
+      - Fall
+    description: Examines the role of information systems in improving healthcare outcomes and decision-making.
+    teacher: Dr. Jamie Lin
+    taken: ''
+
+  - title: Introduction to Healthcare Data Science
+    code: HI7071
+    modality: Online
+    track: Health
+    credits: "2-3"
+    semesters:
+      - Spring
+    description: Introduces data analysis techniques and platforms used in healthcare data science.
+    teacher: Dr. Henry Wolfe
+    taken: ''
+
+  - title: Analytics and BI Tools for Healthcare
+    code: HI7072
+    modality: Online
+    track: Health
+    credits: 3
+    semesters:
+      - Fall
+    description: Covers business intelligence and visualization tools for analyzing healthcare data.
+    teacher: Prof. Nora Andrews
+    taken: ''
+
+  - title: Data Warehousing and Business Intelligence
+    code: IS7034
+    modality: Online
+    track: Analytics
+    credits: 2
+    semesters:
+      - Fall
+    description: Introduces data integration, ETL, and reporting systems for decision support.
+    teacher: Dr. Felix Mendez
+    taken: ''
+
+  - title: Data Analysis Methods
+    code: BANA7038
+    modality: Online
+    track: Analytics
+    credits: 2
+    semesters:
+      - Spring
+    description: Applies statistical and predictive modeling techniques for analyzing datasets.
+    teacher: Dr. Tiffany Moore
+    taken: ''
+
+  - title: Data Mining I
+    code: BANA7046
+    modality: Online
+    track: Analytics
+    credits: 2
+    semesters:
+      - Fall
+    description: Introduces classification, clustering, and association rule mining techniques.
+    teacher: Dr. Victor Hu
+    taken: ''
+
+  - title: Data Mining II
+    code: BANA7047
+    modality: Online
+    track: Analytics
+    credits: 2
+    semesters:
+      - Spring
+    description: Builds on Data Mining I with advanced algorithms and practical applications.
+    teacher: Dr. Ingrid Blanchard
+    taken: ''
+
+  - title: Learning Sciences and Technology
+    code: IDT8020
+    modality: Online
+    track: Education
+    credits: 3
+    semesters:
+      - Fall
+    description: Examines how technology and cognitive science enhance education and instructional design.
+    teacher: Dr. Alicia Ramos
+    taken: ''
+
+  - title: Statistical Data Analysis I
+    code: EDST7010
+    modality: Online
+    track: Education
+    credits: 3
+    semesters:
+      - Spring
+    description: Covers foundational statistical methods for analyzing educational research data.
+    teacher: Dr. Marcus Bell
+    taken: ''
+
+  - title: Biostatistics for Public Health
+    code: PH7010
+    modality: Online
+    track: Health
+    credits: 3
+    semesters:
+      - Fall
+    description: Applies biostatistical techniques to study populations and public health interventions.
+    teacher: Dr. Susan Feldman
+    taken: ''
+
+  - title: Statistical Computation and Software
+    code: PH7011
+    modality: Online
+    track: Health
+    credits: 1
+    semesters:
+      - Spring
+    description: Introduces software tools for performing and visualizing statistical analysis.
+    teacher: Dr. Greg Stewart
+    taken: ''
+
+  - title: Biostatistics in Research
+    code: BE7061
+    modality: Online
+    track: Health
+    credits: 3
+    semesters:
+      - Spring
+    description: Teaches biostatistical methods used in the design and analysis of biomedical studies.
+    teacher: Dr. Lila Johnson
+    taken: ''

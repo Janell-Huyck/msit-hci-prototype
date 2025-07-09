@@ -1,7 +1,42 @@
 <div class="card mb-3">
     <div class="card-body">
-        <h5 class="card-title">{{ include.title }}</h5>
-        <p class="card-text">{{ include.modality }} · {{ include.track }} · {{ include.credits }} credits</p>
-        <a href="#" class="btn btn-primary">Enroll</a>
+        <!-- Collapsible header with rotating arrow -->
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <h5 class="card-title mb-0">{{ include.title }}</h5>
+            <button class="btn btn-sm btn-link text-decoration-none p-0"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#{{ include.code | replace: '.', '-' }}-details"
+                    aria-expanded="false"
+                    aria-controls="{{ include.code | replace: '.', '-' }}-details">
+                <span class="caret-icon text-dark fs-2 ms-2" aria-hidden="true">▼</span>
+            </button>
+        </div>
+
+        <!-- Summary Info -->
+        <p class="mb-1"><strong>Course Code:</strong> {{ include.code }}</p>
+        <p class="mb-1"><strong>Credits:</strong> {{ include.credits }}</p>
+        <p class="mb-1"><strong>Semesters:</strong> {{ include.semesters | join: ", " }}</p>
+        <p class="mb-1"><strong>Modality:</strong> {{ include.modality }}</p>
+        <p class="mb-2"><strong>Taken:</strong> {{ include.taken }}</p>
+
+        <!-- Expanded details -->
+        <div class="collapse mt-2" id="{{ include.code | replace: '.', '-' }}-details">
+            <p><strong>Instructor:</strong> {{ include.teacher }}</p>
+            <p>{{ include.description }}</p>
+            <a href="#" class="btn btn-primary btn-sm">Enroll</a>
+        </div>
     </div>
 </div>
+
+<!-- CSS to rotate arrow when expanded -->
+<style>
+    button[aria-expanded="true"] .caret-icon {
+        transform: rotate(180deg);
+        transition: transform 0.2s ease-in-out;
+    }
+    .caret-icon {
+        display: inline-block;
+        transition: transform 0.2s ease-in-out;
+    }
+</style>
