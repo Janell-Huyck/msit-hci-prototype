@@ -20,14 +20,12 @@
 
 title: MSIT HCI Prototype
 description: A simple prototype for course planning
-baseurl: ""
-url: ""
-
-
-# Build settings
+url: "https://janell-huyck.github.io"
+baseurl: "/msit-hci-prototype"
 
 plugins:
   - jekyll-feed
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
