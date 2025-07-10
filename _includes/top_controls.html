@@ -8,10 +8,21 @@
             <button class="btn btn-outline-secondary">⚙️ Filter</button>
         </div>
         <div class="col-md-2">
-            <select class="form-select">
-                <option selected disabled>Term</option>
-                <option>Summer 2025</option>
-                <option>Fall 2025</option>
+            <label for="term-select" class="form-label visually-hidden">Select term</label>
+            <select id="term-select" class="form-select" onchange="handleTermChange(this)">
+                {% if page.url == "/all-summer.html" %}
+                <option value="/index.html">All Terms</option>
+                <option value="/all-summer.html" selected>Summer 2025</option>
+                <option value="/all-fall.html">Fall 2025</option>
+                {% elsif page.url == "/all-fall.html" %}
+                <option value="/index.html">All Terms</option>
+                <option value="/all-summer.html">Summer 2025</option>
+                <option value="/all-fall.html" selected>Fall 2025</option>
+                {% else %}
+                <option value="/index.html" selected>All Terms</option>
+                <option value="/all-summer.html">Summer 2025</option>
+                <option value="/all-fall.html">Fall 2025</option>
+                {% endif %}
             </select>
         </div>
         <div class="col-auto">
@@ -21,3 +32,12 @@
         </div>
     </div>
 </div>
+
+<script>
+    function handleTermChange(select) {
+        const route = select.value;
+        if (route) {
+            window.location.href = route;
+        }
+    }
+</script>

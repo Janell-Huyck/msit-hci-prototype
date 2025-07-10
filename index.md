@@ -4,4 +4,8 @@ title: MSIT Course Planner
 ---
 
 {% include top_controls.html %}
-{% include course_columns.html %}
+{% include course_columns.html
+core=site.data.courses.core
+it_electives=site.data.courses.it_electives
+non_it_electives=site.data.courses.non_it_electives
+capstone=site.data.courses.capstone %}

@@ -7,6 +7,7 @@ core:
     semesters:
       - Fall
       - Spring
+      - Summer
     description: Introduces graduate students to current research and professional practices in IT.
     teacher: Dr. Karen Hill
     taken: ''
@@ -19,6 +20,7 @@ core:
     semesters:
       - Fall
       - Spring
+      - Summer
     description: Covers qualitative and quantitative research techniques applicable to IT fields.
     teacher: Dr. Omar Chen
     taken: ''
@@ -30,6 +32,7 @@ core:
     credits: 3
     semesters:
       - Spring
+      - Summer
     description: Focuses on interaction design, user experience, and usability testing in IT systems.
     teacher: Dr. Emily Tran
     taken: ''
@@ -56,6 +59,7 @@ capstone:
     semesters:
       - Fall
       - Spring
+      - Summer
     description: Faculty-supervised research for students pursuing a thesis track.
     teacher: Dr. Talia Simmons
     taken: ''
@@ -69,6 +73,7 @@ it_electives:
     semesters:
       - Fall
       - Spring
+      - Summer
     description: Introduces foundational cybersecurity principles, threat models, and risk mitigation strategies.
     teacher: Dr. Alan Tate
     taken: ''
@@ -80,6 +85,7 @@ it_electives:
     credits: 3
     semesters:
       - Spring
+      - Summer
     description: Covers enterprise network protection and forensic analysis tools for threat identification.
     teacher: Dr. Nina Zhao
     taken: ''
@@ -91,6 +97,7 @@ it_electives:
     credits: 3
     semesters:
       - Fall
+      - Summer
     description: Explores mobile app frameworks, platform differences, and responsive design.
     teacher: Prof. Eli Grant
     taken: ''
@@ -113,6 +120,7 @@ it_electives:
     credits: 3
     semesters:
       - Fall
+      - Summer
     description: Focuses on enterprise storage architectures and virtualization in IT operations.
     teacher: Dr. John Yates
     taken: ''
@@ -147,6 +155,7 @@ it_electives:
     credits: 3
     semesters:
       - Fall
+      - Summer
     description: Focuses on modern game engines and collaborative dev workflows for 3D/VR platforms.
     teacher: Dr. Jen Malik
     taken: ''
@@ -217,6 +226,7 @@ non_it_electives:
     credits: 3
     semesters:
     - Spring
+    - Summer
     description: Examines community-based and situational crime prevention strategies.
     teacher: Dr. Jordan Brooks
     taken: ''
@@ -250,6 +260,7 @@ non_it_electives:
     credits: 2
     semesters:
     - Fall
+    - Summer
     description: Applies statistical methods and R programming to real-world datasets.
     teacher: Dr. Olivia Chen
     taken: ''
@@ -305,6 +316,7 @@ non_it_electives:
     credits: 3
     semesters:
       - Fall
+      - Summer
     description: Analyzes design and performance of algorithms for sorting, searching, and graph problems.
     teacher: Dr. Omar Patel
     taken: ''
@@ -349,6 +361,7 @@ non_it_electives:
     credits: 2
     semesters:
       - Fall
+      - Summer
     description: Introduces data integration, ETL, and reporting systems for decision support.
     teacher: Dr. Felix Mendez
     taken: ''
@@ -393,6 +406,7 @@ non_it_electives:
     credits: 3
     semesters:
       - Fall
+      - Summer
     description: Examines how technology and cognitive science enhance education and instructional design.
     teacher: Dr. Alicia Ramos
     taken: ''
@@ -426,6 +440,7 @@ non_it_electives:
     credits: 1
     semesters:
       - Spring
+      - Summer
     description: Introduces software tools for performing and visualizing statistical analysis.
     teacher: Dr. Greg Stewart
     taken: ''
@@ -437,6 +452,7 @@ non_it_electives:
     credits: 3
     semesters:
       - Spring
+      - Summer
     description: Teaches biostatistical methods used in the design and analysis of biomedical studies.
     teacher: Dr. Lila Johnson
     taken: ''
