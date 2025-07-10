@@ -93,7 +93,7 @@ it_electives:
   - title: Technologies for Mobile Applications
     code: IT7024C
     modality: Online
-    track: Software
+    track: Software Development
     credits: 3
     semesters:
       - Fall

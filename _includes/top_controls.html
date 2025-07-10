@@ -5,7 +5,45 @@
             <button class="btn btn-outline-secondary">🔍</button>
         </div>
         <div class="col-auto">
-            <button class="btn btn-outline-secondary">⚙️ Filter</button>
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="filterMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    ⚙️ Filter
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="filterMenuButton">
+
+                    <!-- Modality -->
+                    <li class="dropdown dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#">Modality</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">In-person</a></li>
+                            <li><a class="dropdown-item" href="#">Remote</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Track -->
+                    <li class="dropdown dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#">MSIT Track</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Cybersecurity</a></li>
+                            <li><a class="dropdown-item" href="#">Infrastructure</a></li>
+                            <li><a class="dropdown-item" href="#">Mobile Dev</a></li>
+                            <li><a class="dropdown-item" href="#">HCI</a></li>
+                            <li><a class="dropdown-item" href="#">Data</a></li>
+                            <li><a class="dropdown-item" href="#">Software Dev</a></li>
+                            <li><a class="dropdown-item" href="#">Networking</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Professor (disabled placeholder) -->
+                    <li class="dropdown dropdown-submenu">
+                        <a class="dropdown-item dropdown-toggle" href="#">Professor</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item disabled" href="#">(Not enabled in demo)</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
         </div>
         <div class="col-md-2">
             <label for="term-select" class="form-label visually-hidden">Select term</label>
