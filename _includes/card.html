@@ -13,6 +13,10 @@
                 <span class="caret-icon text-dark fs-2 ms-2" aria-hidden="true">▼</span>
             </button>
         </div>
+
+        <!-- Summary Info -->
+        <p class="mb-1"><strong> {{ include.code }}</strong></p>
+        <p class="mb-1">{{ include.semesters | join: ", " }}</p>
         <div>
             {% if include.taken %}
             <i
@@ -31,9 +35,6 @@
             {% endif %}
         </div>
 
-        <!-- Summary Info -->
-        <p class="mb-1"><strong> {{ include.code }}</strong></p>
-        <p class="mb-1">{{ include.semesters | join: ", " }}</p>
 
         <!-- Expanded details -->
         <div class="collapse mt-2" id="{{ include.code | replace: '.', '-' }}-details">
