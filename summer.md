@@ -10,8 +10,8 @@ track:
 
 {% include top_controls.html %}
 
-<div class="container-fluid">
-  <div class="row row-cols-1 row-cols-md-4 g-4">
+<div class="container-fluid" style="height: 70vh;">
+  <div class="row row-cols-1 row-cols-md-4 h-100 align-items-stretch">
     {% assign core_summer = site.data.courses.core | where: "semesters","Summer" %}
     {% assign it_summer = site.data.courses.it_electives | where: "semesters","Summer" %}
     {% assign non_it_summer = site.data.courses.non_it_electives | where: "semesters","Summer" %}

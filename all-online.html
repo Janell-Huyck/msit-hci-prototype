@@ -10,9 +10,8 @@ track:
 
 {% include top_controls.html %}
 
-<h2 class="mt-4">All Courses – Online</h2>
-<div class="container-fluid">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
+<div class="container-fluid" style="height: 70vh;">
+    <div class="row row-cols-1 row-cols-md-4 h-100 align-items-stretch">
         {% assign core_ao = site.data.courses.core   | where: "modality", "Online" %}
         {% assign it_ao   = site.data.courses.it_electives | where: "modality", "Online" %}
         {% assign non_ao  = site.data.courses.non_it_electives | where: "modality", "Online" %}

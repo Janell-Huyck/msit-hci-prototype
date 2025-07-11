@@ -1,22 +1,9 @@
-<div class="card mb-3 position-relative" data-code="{{ include.code }}">
+<div class="card mb-3 position-relative" data-code="{{ include.code }}" data-semester="{{ page.semester }}">
     <div class="card-body">
         <!-- Collapsible header with rotating arrow -->
         <div class="d-flex justify-content-between align-items-center mb-2">
             <h5 class="card-title mb-0">{{ include.title }}</h5>
-            {% if include.taken %}
-                <i
-                        class="bi bi-check-circle-fill text-success position-absolute end-0 top-50 translate-middle-y me-3 fs-4"
-                        aria-hidden="true"
-                ></i>
-            {% else %}
-                <a
-                        href="#"
-                        class="btn btn-primary btn-sm enroll-btn"
-                        data-code="{{ include.code }}"
-                >
-                    Enroll
-                </a>
-            {% endif %}
+
             <button class="btn btn-sm btn-link text-decoration-none p-0"
                     type="button"
                     data-bs-toggle="collapse"
@@ -25,6 +12,23 @@
                     aria-controls="{{ include.code | replace: '.', '-' }}-details">
                 <span class="caret-icon text-dark fs-2 ms-2" aria-hidden="true">▼</span>
             </button>
+        </div>
+        <div>
+            {% if include.taken %}
+            <i
+                    class="bi bi-check-circle-fill text-success position-absolute end-0 top-50 translate-middle-y me-3 fs-4"
+                    aria-hidden="true"
+            ></i>
+            {% elsif page.semester %}
+            <a
+                    href="#"
+                    class="btn btn-primary btn-sm enroll-btn px-2"
+                    data-code="{{ include.code }}"
+                    data-semester="{{ page.semester }}"
+            >
+                Enroll
+            </a>
+            {% endif %}
         </div>
 
         <!-- Summary Info -->

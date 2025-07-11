@@ -1,12 +1,12 @@
-<div class="col">
-    <div class="card h-100 d-flex flex-column">
+<div class="d-flex col h-100">
+    <div class="card h-100 d-flex flex-column flex-grow-1">
         <!-- Fixed-height header with border -->
         <div class="card-body d-flex align-items-end flex-grow-0" style="height: 80px;">
             <h5 class="card-title text-center w-100 border-bottom pb-2 m-0">{{ include.heading }}</h5>
         </div>
 
         <!-- Scrollable course list -->
-        <div class="card-body pt-3 px-2 flex-grow-1" style="overflow-y: auto; max-height: 55vh;">
+        <div class="card-body pt-3 px-2 flex-grow-1 h-100" style="overflow-y: auto;">
             {% for course in include.courses %}
             {% include card.html
             title=course.title

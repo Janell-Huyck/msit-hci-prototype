@@ -1,4 +1,77 @@
-/* Inline collapsing submenus */
+/* --- CORE LAYOUT: Only target the main grid row/columns --- */
+
+/* Ensure the main grid row (4 or 5 columns) stretches, but not all rows site-wide */
+.row.row-cols-md-4,
+.row.row-cols-md-5 {
+    min-height: 55vh;          /* adjust as needed */
+    align-items: stretch;      /* stretch all columns equally */
+}
+.row.row-cols-md-4 > .col,
+.row.row-cols-md-5 > .col {
+    display: flex;
+    flex-direction: column;
+    /* Don't set height: 100%—let content/flex handle it */
+}
+
+/* --- CARD LAYOUT: Fixed header, scrollable body, unified for all columns --- */
+.card.h-100.d-flex.flex-column {
+    min-height: 0;             /* critical for flexbox/scrollbar */
+    display: flex;
+    flex-direction: column;
+    height: 100%;              /* fill the column */
+}
+
+/* Fixed-height header (matches your .card-body above columns) */
+.card .card-body.flex-grow-0 {
+    flex: 0 0 auto;
+    height: 80px;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    align-items: end;
+    padding-bottom: 0.5rem;
+}
+
+/* Scrollable body area for course lists */
+.card .card-body.flex-grow-1 {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    min-height: 0;
+    padding-top: 1rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+/* --- "MY ENROLLMENTS" COLUMN: Matches other columns visually/structurally --- */
+#my-enrollments-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+#my-enrollments-col .enrollments-list {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 0.75rem;
+}
+
+#my-enrollments-col > h5 {
+    margin: 0;
+    padding: 0.75rem;
+    border-bottom: 1px solid #dee2e6;
+    flex: 0 0 auto;
+    background: #f8f9fa;   /* Light gray for header, optional */
+}
+
+/* Spacing for cards within the enrollments list */
+#my-enrollments-col .enrollments-list .card {
+    margin-bottom: 0.75rem;
+}
+
+/* --- DROPDOWN SUBMENU STYLES (unchanged from your original) --- */
 .dropdown-submenu > .dropdown-menu {
     position: static;
     display: none;
@@ -6,12 +79,10 @@
     padding-left: 1rem;
 }
 
-/* Reveal submenu when parent <li> has .show */
 .dropdown-submenu.show > .dropdown-menu {
     display: block;
 }
 
-/* Custom caret (triangle) for submenus */
 .dropdown-submenu > .dropdown-toggle {
     position: relative;
 }
@@ -27,7 +98,7 @@
     border-right: 0.5em solid transparent;
     border-top: 0.5em solid currentColor;
     transition: transform 0.3s ease;
-    content: ""; /* ensure it's applied */
+    content: "";
 }
 
 .dropdown-submenu.show > .dropdown-toggle::after {

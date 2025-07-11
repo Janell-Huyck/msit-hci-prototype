@@ -9,8 +9,8 @@ track: cybersecurity
 
 {% include top_controls.html %}
 
-<div class="container-fluid">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
+<div class="container-fluid" style="height: 70vh;">
+    <div class="row row-cols-1 row-cols-md-4 h-100 align-items-stretch">
         {% assign core_aoc = site.data.courses.core | where: "modality", "Online" %}
         {% assign it_aoc   = site.data.courses.it_electives | where: "modality", "Online" | where: "track", "Cybersecurity" %}
         {% assign non_aoc  = site.data.courses.non_it_electives | where: "modality", "Online" | where: "track", "Cybersecurity" %}
