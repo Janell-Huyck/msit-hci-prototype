@@ -10,7 +10,7 @@ core:
       - Summer
     description: Introduces graduate students to current research and professional practices in IT.
     teacher: Dr. Karen Hill
-    taken: ''
+    taken: true
 
   - title: Information Technology Research Methods
     code: IT7010C
@@ -23,7 +23,7 @@ core:
       - Summer
     description: Covers qualitative and quantitative research techniques applicable to IT fields.
     teacher: Dr. Omar Chen
-    taken: ''
+    taken: true
 
   - title: Human Computer Interaction and Usability
     code: IT7040C
@@ -35,7 +35,7 @@ core:
       - Summer
     description: Focuses on interaction design, user experience, and usability testing in IT systems.
     teacher: Dr. Emily Tran
-    taken: ''
+    taken:
 
 capstone:
   - title: IT Project
@@ -49,7 +49,7 @@ capstone:
       - Summer
     description: Capstone project taken in final semester to synthesize program learning.
     teacher: Dr. Brian Ellis
-    taken: ''
+    taken:
 
   - title: Thesis Research
     code: IT8020
@@ -62,7 +62,7 @@ capstone:
       - Summer
     description: Faculty-supervised research for students pursuing a thesis track.
     teacher: Dr. Talia Simmons
-    taken: ''
+    taken:
 
 it_electives:
   - title: Principles of Cybersecurity
@@ -76,7 +76,7 @@ it_electives:
       - Summer
     description: Introduces foundational cybersecurity principles, threat models, and risk mitigation strategies.
     teacher: Dr. Alan Tate
-    taken: ''
+    taken: true
 
   - title: Enterprise Security and Forensics
     code: IT7021C
@@ -88,7 +88,7 @@ it_electives:
       - Summer
     description: Covers enterprise network protection and forensic analysis tools for threat identification.
     teacher: Dr. Nina Zhao
-    taken: ''
+    taken: true
 
   - title: Technologies for Mobile Applications
     code: IT7024C
@@ -100,7 +100,7 @@ it_electives:
       - Summer
     description: Explores mobile app frameworks, platform differences, and responsive design.
     teacher: Prof. Eli Grant
-    taken: ''
+    taken:
 
   - title: IT Infrastructure Sustainability
     code: IT7027C
@@ -111,7 +111,7 @@ it_electives:
       - Spring
     description: Teaches sustainable IT planning, including energy use and system resilience.
     teacher: Dr. Maria Liu
-    taken: ''
+    taken:
 
   - title: Advanced Storage Technologies
     code: IT7028C
@@ -123,7 +123,7 @@ it_electives:
       - Summer
     description: Focuses on enterprise storage architectures and virtualization in IT operations.
     teacher: Dr. John Yates
-    taken: ''
+    taken:
 
   - title: Advanced Systems Administration
     code: IT7029C
@@ -135,7 +135,7 @@ it_electives:
       - Spring
     description: Examines enterprise system deployment, configuration, and security policy enforcement.
     teacher: Dr. Rita Chang
-    taken: ''
+    taken:
 
   - title: Games for Learning & Simulation
     code: IT7030C
@@ -146,7 +146,7 @@ it_electives:
       - Spring
     description: Covers design and development of educational simulations using game engines.
     teacher: Prof. Danny Ho
-    taken: ''
+    taken:
 
   - title: Advanced Technologies for Game Development
     code: IT7031C
@@ -158,7 +158,7 @@ it_electives:
       - Summer
     description: Focuses on modern game engines and collaborative dev workflows for 3D/VR platforms.
     teacher: Dr. Jen Malik
-    taken: ''
+    taken:
 
   - title: Machine Learning and Data Mining for IT
     code: IT7071C
@@ -170,7 +170,7 @@ it_electives:
       - Spring
     description: Explores predictive modeling and anomaly detection in IT data streams.
     teacher: Dr. Leo Finch
-    taken: ''
+    taken:
 
   - title: Data Driven Cybersecurity
     code: IT7075C
@@ -181,7 +181,7 @@ it_electives:
       - Spring
     description: Applies data science methods to identify security threats in network traffic.
     teacher: Dr. Sarah West
-    taken: ''
+    taken:
 
   - title: Social Network Analysis - Visualization and Hypothesis Testing
     code: IT8007
@@ -192,7 +192,7 @@ it_electives:
       - Fall
     description: Analyzes social networks using graph theory, visualization, and inferential stats.
     teacher: Prof. Isaac Park
-    taken: ''
+    taken:
 
   - title: Graduate Topics in Information Technology
     code: IT7039
@@ -205,7 +205,7 @@ it_electives:
       - Summer
     description: Covers rotating special topics in IT, such as blockchain, edge computing, and AR/VR.
     teacher: Staff
-    taken: ''
+    taken:
 
 non_it_electives:
   - title: Cybercrime
@@ -217,7 +217,7 @@ non_it_electives:
     - Fall
     description: Explores types of cybercrime, investigative techniques, and legal frameworks.
     teacher: Dr. Rachel Green
-    taken: ''
+    taken:
 
   - title: Theory and Practice of Crime Prevention
     code: CJ7070
@@ -229,7 +229,7 @@ non_it_electives:
     - Summer
     description: Examines community-based and situational crime prevention strategies.
     teacher: Dr. Jordan Brooks
-    taken: ''
+    taken:
 
   - title: Artificial Intelligence
     code: CS6033
@@ -240,7 +240,7 @@ non_it_electives:
     - Fall
     description: Introduces AI concepts including search, logic, planning, and machine learning.
     teacher: Dr. Maya Singh
-    taken: ''
+    taken:
 
   - title: Machine Learning
     code: CS6037
@@ -251,7 +251,7 @@ non_it_electives:
     - Spring
     description: Covers supervised and unsupervised learning, with emphasis on algorithms and applications.
     teacher: Dr. Aaron Kim
-    taken: ''
+    taken:
 
   - title: Statistical Computing
     code: BANA6043
@@ -263,7 +263,7 @@ non_it_electives:
     - Summer
     description: Applies statistical methods and R programming to real-world datasets.
     teacher: Dr. Olivia Chen
-    taken: ''
+    taken: true
 
   - title: Intelligent Data Analysis
     code: CS6052
@@ -274,7 +274,7 @@ non_it_electives:
       - Fall
     description: Applies advanced analytical techniques for extracting insights from structured and unstructured data.
     teacher: Dr. Xavier Nash
-    taken: ''
+    taken:
 
   - title: Network Security
     code: CS6053
@@ -285,7 +285,7 @@ non_it_electives:
       - Spring
     description: Covers principles of secure network design, protocols, and threat mitigation strategies.
     teacher: Dr. Emily Sorensen
-    taken: ''
+    taken:
 
   - title: Information Retrieval
     code: CS6054
@@ -296,7 +296,7 @@ non_it_electives:
       - Fall
     description: Explores techniques for indexing, querying, and ranking large-scale textual data.
     teacher: Dr. Michael Dinh
-    taken: ''
+    taken:
 
   - title: Security Vulnerability Assessment
     code: CS6056
@@ -307,7 +307,7 @@ non_it_electives:
       - Spring
     description: Teaches tools and processes to identify, assess, and mitigate software and system vulnerabilities.
     teacher: Dr. Sheila Ford
-    taken: ''
+    taken:
 
   - title: Advanced Algorithms I
     code: CS7081
@@ -319,7 +319,7 @@ non_it_electives:
       - Summer
     description: Analyzes design and performance of algorithms for sorting, searching, and graph problems.
     teacher: Dr. Omar Patel
-    taken: ''
+    taken:
 
   - title: Health Informatics, Information Systems and Technology
     code: HI7010
@@ -330,7 +330,7 @@ non_it_electives:
       - Fall
     description: Examines the role of information systems in improving healthcare outcomes and decision-making.
     teacher: Dr. Jamie Lin
-    taken: ''
+    taken:
 
   - title: Introduction to Healthcare Data Science
     code: HI7071
@@ -341,7 +341,7 @@ non_it_electives:
       - Spring
     description: Introduces data analysis techniques and platforms used in healthcare data science.
     teacher: Dr. Henry Wolfe
-    taken: ''
+    taken:
 
   - title: Analytics and BI Tools for Healthcare
     code: HI7072
@@ -352,7 +352,7 @@ non_it_electives:
       - Fall
     description: Covers business intelligence and visualization tools for analyzing healthcare data.
     teacher: Prof. Nora Andrews
-    taken: ''
+    taken:
 
   - title: Data Warehousing and Business Intelligence
     code: IS7034
@@ -364,7 +364,7 @@ non_it_electives:
       - Summer
     description: Introduces data integration, ETL, and reporting systems for decision support.
     teacher: Dr. Felix Mendez
-    taken: ''
+    taken:
 
   - title: Data Analysis Methods
     code: BANA7038
@@ -375,7 +375,7 @@ non_it_electives:
       - Spring
     description: Applies statistical and predictive modeling techniques for analyzing datasets.
     teacher: Dr. Tiffany Moore
-    taken: ''
+    taken:
 
   - title: Data Mining I
     code: BANA7046
@@ -386,7 +386,7 @@ non_it_electives:
       - Fall
     description: Introduces classification, clustering, and association rule mining techniques.
     teacher: Dr. Victor Hu
-    taken: ''
+    taken:
 
   - title: Data Mining II
     code: BANA7047
@@ -397,7 +397,7 @@ non_it_electives:
       - Spring
     description: Builds on Data Mining I with advanced algorithms and practical applications.
     teacher: Dr. Ingrid Blanchard
-    taken: ''
+    taken:
 
   - title: Learning Sciences and Technology
     code: IDT8020
@@ -409,7 +409,7 @@ non_it_electives:
       - Summer
     description: Examines how technology and cognitive science enhance education and instructional design.
     teacher: Dr. Alicia Ramos
-    taken: ''
+    taken:
 
   - title: Statistical Data Analysis I
     code: EDST7010
@@ -420,7 +420,7 @@ non_it_electives:
       - Spring
     description: Covers foundational statistical methods for analyzing educational research data.
     teacher: Dr. Marcus Bell
-    taken: ''
+    taken:
 
   - title: Biostatistics for Public Health
     code: PH7010
@@ -431,7 +431,7 @@ non_it_electives:
       - Fall
     description: Applies biostatistical techniques to study populations and public health interventions.
     teacher: Dr. Susan Feldman
-    taken: ''
+    taken:
 
   - title: Statistical Computation and Software
     code: PH7011
@@ -443,7 +443,7 @@ non_it_electives:
       - Summer
     description: Introduces software tools for performing and visualizing statistical analysis.
     teacher: Dr. Greg Stewart
-    taken: ''
+    taken:
 
   - title: Biostatistics in Research
     code: BE7061
@@ -455,4 +455,4 @@ non_it_electives:
       - Summer
     description: Teaches biostatistical methods used in the design and analysis of biomedical studies.
     teacher: Dr. Lila Johnson
-    taken: ''
+    taken:
