@@ -13,14 +13,10 @@ track:
 <h2 class="mt-4">All Courses – Online</h2>
 <div class="container-fluid">
     <div class="row row-cols-1 row-cols-md-4 g-4">
-        {% assign core_ao = site.data.courses.core
-        | where_exp: "c","c.modality == 'Online'" %}
-        {% assign it_ao   = site.data.courses.it_electives
-        | where_exp: "c","c.modality == 'Online'" %}
-        {% assign non_ao  = site.data.courses.non_it_electives
-        | where_exp: "c","c.modality == 'Online'" %}
-        {% assign cap_ao  = site.data.courses.capstone
-        | where_exp: "c","c.modality == 'Online'" %}
+        {% assign core_ao = site.data.courses.core   | where: "modality", "Online" %}
+        {% assign it_ao   = site.data.courses.it_electives | where: "modality", "Online" %}
+        {% assign non_ao  = site.data.courses.non_it_electives | where: "modality", "Online" %}
+        {% assign cap_ao  = site.data.courses.capstone | where: "modality", "Online" %}
 
         {% include course_column.html heading="Core Courses" courses=core_ao %}
         {% include course_column.html heading="IT Electives" courses=it_ao %}

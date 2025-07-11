@@ -2,7 +2,6 @@
 layout: default
 title: All Terms – Cybersecurity
 permalink: /all-cybersecurity.html
-
 semester:
 modality:
 track: cybersecurity
@@ -13,10 +12,8 @@ track: cybersecurity
 <div class="container-fluid">
     <div class="row row-cols-1 row-cols-md-4 g-4">
         {% assign core_ac = site.data.courses.core %}
-        {% assign it_ac   = site.data.courses.it_electives
-        | where_exp: "c", "c.track == 'Cybersecurity'" %}
-        {% assign non_ac  = site.data.courses.non_it_electives
-        | where_exp: "c", "c.track == 'Cybersecurity'" %}
+        {% assign it_ac   = site.data.courses.it_electives | where: "track", "Cybersecurity" %}
+        {% assign non_ac  = site.data.courses.non_it_electives | where: "track", "Cybersecurity" %}
         {% assign cap_ac  = site.data.courses.capstone %}
 
         {% include course_column.html heading="Core Courses" courses=core_ac %}
