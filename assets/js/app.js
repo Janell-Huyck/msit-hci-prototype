@@ -191,17 +191,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const container = card.querySelector('.enroll-btn-container');
         if (!container) return;
         container.innerHTML = `
-        <span class="btn btn-sm text-white bg-success enrolled-badge align-middle d-inline-flex align-items-center" style="font-size:1em;">
-          <i class="bi bi-person-check-fill me-1"></i>
-          Enrolled
-          <button type="button"
-            class="btn-close btn-close-white btn-sm ms-2 unenroll-btn align-middle"
-            aria-label="Un-enroll"
-            data-code="${code}"
-            data-semester="${sem}"
-            style="float:none; vertical-align:middle; margin-top:0;"
-          ></button>
-        </span>
+            <span class="text-success fw-bold small me-2">
+                <i class="bi bi-person-check-fill me-1"></i>
+                Enrolled
+            </span>
     `;
 
     }
