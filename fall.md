@@ -1,7 +1,11 @@
 ---
 layout: default
 title: Fall Courses
-permalink: /all-fall.html
+permalink: /fall.html
+
+semester: fall
+modality:
+track:
 ---
 
 {% include top_controls.html %}

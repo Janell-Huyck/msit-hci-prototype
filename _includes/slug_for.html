@@ -1,0 +1,27 @@
+{%- comment -%}
+    Smart slug builder:
+    • include.term  (e.g. "summer", "fall", or "all")
+    • page.semester (fallback when include.term is omitted)
+    • page.modality (e.g. "online")
+    • page.track    (e.g. "cybersecurity")
+
+    If it’s “all” *and* there are no modality or track filters, output “index”.
+    Otherwise output term[-modality][-track].
+{%- endcomment -%}
+
+{%- assign term = include.term
+    | default: page.semester
+    | default: 'all' -%}
+{%- assign mod  = page.modality | default: '' -%}
+{%- assign trk  = page.track    | default: '' -%}
+
+{%- if term == 'all' and mod == '' and trk == '' -%}
+    index
+{%- else -%}
+    {%- capture s -%}
+        {{ term }}
+        {%- if mod != '' -%}-{{ mod }}{%- endif -%}
+        {%- if trk != '' -%}-{{ trk }}{%- endif -%}
+    {%- endcapture -%}
+    {{ s | strip }}
+{%- endif -%}

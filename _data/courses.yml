@@ -211,7 +211,7 @@ non_it_electives:
   - title: Cybercrime
     code: CJ6012
     modality: Online
-    track: Criminal Justice
+    track: Cybersecurity
     credits: 3
     semesters:
     - Fall
@@ -222,7 +222,7 @@ non_it_electives:
   - title: Theory and Practice of Crime Prevention
     code: CJ7070
     modality: Online
-    track: Criminal Justice
+    track: Cybersecurity
     credits: 3
     semesters:
     - Spring
@@ -245,7 +245,7 @@ non_it_electives:
   - title: Machine Learning
     code: CS6037
     modality: In-Person
-    track: Computer Science
+    track: Cybersecurity
     credits: 3
     semesters:
     - Spring
@@ -279,7 +279,7 @@ non_it_electives:
   - title: Network Security
     code: CS6053
     modality: In-Person
-    track: Computer Science
+    track: Cybersecurity
     credits: 3
     semesters:
       - Spring
@@ -301,7 +301,7 @@ non_it_electives:
   - title: Security Vulnerability Assessment
     code: CS6056
     modality: In-Person
-    track: Computer Science
+    track: Cybersecurity
     credits: 3
     semesters:
       - Spring

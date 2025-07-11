@@ -4,19 +4,53 @@
             <input type="text" class="form-control" placeholder="Search courses..." />
             <button class="btn btn-outline-secondary">🔍</button>
         </div>
+
+        <!-- Filter dropdown -->
         <div class="col-auto">
             <div class="dropdown">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="filterMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <button
+                        class="btn btn-outline-secondary dropdown-toggle"
+                        type="button"
+                        id="filterMenuButton"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                >
                     ⚙️ Filter
                 </button>
+
                 <ul class="dropdown-menu" aria-labelledby="filterMenuButton">
 
                     <!-- Modality -->
                     <li class="dropdown dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">Modality</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">In-person</a></li>
-                            <li><a class="dropdown-item" href="#">Remote</a></li>
+
+                            {% comment %}
+                                Build “online” link slug:
+                                term = page.semester (or “all” if blank)
+                                modality = online
+                                track = page.track (if any)
+                            {% endcomment %}
+                            {% assign base_term = page.semester | default: 'all' %}
+                            {% capture slug_online %}
+                                {{ base_term }}-online{% if page.track %}-{{ page.track }}{% endif %}
+                            {% endcapture %}
+                            <li>
+                                <a
+                                        class="dropdown-item {% if page.modality == 'online' %}active{% endif %}"
+                                        href="{{ site.baseurl }}/{{ slug_online | strip }}.html"
+                                >
+                                    Online
+                                </a>
+                            </li>
+
+                            <!-- In-person disabled -->
+                            <li>
+                                <a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">
+                                    In-person
+                                </a>
+                            </li>
+
                         </ul>
                     </li>
 
@@ -24,45 +58,85 @@
                     <li class="dropdown dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">MSIT Track</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Cybersecurity</a></li>
-                            <li><a class="dropdown-item" href="#">Infrastructure</a></li>
-                            <li><a class="dropdown-item" href="#">Mobile Dev</a></li>
-                            <li><a class="dropdown-item" href="#">HCI</a></li>
-                            <li><a class="dropdown-item" href="#">Data</a></li>
-                            <li><a class="dropdown-item" href="#">Software Dev</a></li>
-                            <li><a class="dropdown-item" href="#">Networking</a></li>
+
+                            {% comment %}
+                            Build “cybersecurity” link slug:
+                            term = page.semester (or “all”)
+                            modality = page.modality (if any)
+                            track = cybersecurity
+                            {% endcomment %}
+                            {% capture slug_cyber %}
+                            {{ base_term }}{% if page.modality %}-{{ page.modality }}{% endif %}-cybersecurity
+                            {% endcapture %}
+                            <li>
+                                <a
+                                        class="dropdown-item {% if page.track == 'cybersecurity' %}active{% endif %}"
+                                        href="{{ site.baseurl }}/{{ slug_cyber | strip }}.html"
+                                >
+                                    Cybersecurity
+                                </a>
+                            </li>
+
+                            {% comment %}
+                            Other tracks disabled in demo...
+                            {% endcomment %}
+                            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Infrastructure</a></li>
+                            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Mobile Dev</a></li>
+                            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">HCI</a></li>
+                            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Data</a></li>
+                            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Software Dev</a></li>
+                            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Networking</a></li>
+
                         </ul>
                     </li>
 
-                    <!-- Professor (disabled placeholder) -->
+                    <!-- Professor placeholder -->
                     <li class="dropdown dropdown-submenu">
                         <a class="dropdown-item dropdown-toggle" href="#">Professor</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item disabled" href="#">(Not enabled in demo)</a></li>
+                            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">(Not in demo)</a></li>
                         </ul>
                     </li>
-
                 </ul>
             </div>
         </div>
+
+        <!-- Term selection -->
         <div class="col-md-2">
             <label for="term-select" class="form-label visually-hidden">Select term</label>
-            <select id="term-select" class="form-select" onchange="handleTermChange(this)">
-                {% if page.url == "/all-summer.html" %}
-                <option value="{{ site.url }}{{ site.baseurl }}/index.html">All Terms</option>
-                <option value="{{ site.url }}{{ site.baseurl }}/all-summer.html" selected>Summer 2025</option>
-                <option value="{{ site.url }}{{ site.baseurl }}/all-fall.html">Fall 2025</option>
-                {% elsif page.url == "/all-fall.html" %}
-                <option value="{{ site.url }}{{ site.baseurl }}/index.html">All Terms</option>
-                <option value="{{ site.url }}{{ site.baseurl }}/all-summer.html">Summer 2025</option>
-                <option value="{{ site.url }}{{ site.baseurl }}/all-fall.html" selected>Fall 2025</option>
-                {% else %}
-                <option value="{{ site.url }}{{ site.baseurl }}/index.html" selected>All Terms</option>
-                <option value="{{ site.url }}{{ site.baseurl }}/all-summer.html">Summer 2025</option>
-                <option value="{{ site.url }}{{ site.baseurl }}/all-fall.html">Fall 2025</option>
-                {% endif %}
+
+            <select
+                    id="term-select"
+                    class="form-select"
+                    onchange="handleTermChange(this)"
+            >
+                <!-- All Terms -->
+                <option
+                        value="{{ site.url }}{{ site.baseurl }}/{% include slug_for.html term='all' %}.html"
+                        {% if page.semester == nil or page.semester == '' %}selected{% endif %}
+                >
+                All Terms
+                </option>
+
+                <!-- Summer 2025 -->
+                <option
+                        value="{{ site.url }}{{ site.baseurl }}/{% include slug_for.html term='summer' %}.html"
+                        {% if page.semester == 'summer' %}selected{% endif %}
+                >
+                Summer 2025
+                </option>
+
+                <!-- Fall 2025 -->
+                <option
+                        value="{{ site.url }}{{ site.baseurl }}/{% include slug_for.html term='fall' %}.html"
+                        {% if page.semester == 'fall' %}selected{% endif %}
+                >
+                Fall 2025
+                </option>
             </select>
         </div>
+
+        <!-- Export button -->
         <div class="col-auto">
             <button class="btn btn-outline-secondary">
                 Export ▼
@@ -70,6 +144,78 @@
         </div>
     </div>
 </div>
+
+<!-- Filter droplets -->
+<div class="mb-3" id="active-filters">
+    {% comment %} Online badge {% endcomment %}
+    {% if page.url contains 'online' %}
+    <span class="badge bg-primary me-1">
+      🌐 Online
+
+      {% if page.url contains 'cybersecurity' %}
+        {%- comment -%} remove Online but keep Cybersecurity {%- endcomment -%}
+        {% if page.url contains '/summer-online-cybersecurity' %}
+          <a href="{{ site.baseurl }}/summer-cybersecurity.html" class="text-white text-decoration-none ms-1">&times;</a>
+        {% elsif page.url contains '/fall-online-cybersecurity' %}
+          <a href="{{ site.baseurl }}/fall-cybersecurity.html" class="text-white text-decoration-none ms-1">&times;</a>
+        {% elsif page.url contains '/all-online-cybersecurity' %}
+          <a href="{{ site.baseurl }}/all-cybersecurity.html" class="text-white text-decoration-none ms-1">&times;</a>
+        {% endif %}
+
+      {% else %}
+        {%- comment -%} remove Online only {%- endcomment -%}
+        {% if page.url contains '/summer-online' %}
+          <a href="{{ site.baseurl }}/summer.html" class="text-white text-decoration-none ms-1">&times;</a>
+        {% elsif page.url contains '/fall-online' %}
+          <a href="{{ site.baseurl }}/fall.html" class="text-white text-decoration-none ms-1">&times;</a>
+        {% elsif page.url contains '/all-online' %}
+          <a href="{{ site.baseurl }}/index.html" class="text-white text-decoration-none ms-1">&times;</a>
+        {% endif %}
+      {% endif %}
+
+    </span>
+    {% endif %}
+
+    {% comment %} Cybersecurity badge {% endcomment %}
+    {% if page.url contains 'cybersecurity' %}
+    <span class="badge bg-primary me-1">
+      🔒 Cybersecurity
+
+      {% if page.url contains 'online' %}
+        {%- comment -%} remove Cybersec but keep Online {%- endcomment -%}
+        {% if page.url contains '/summer-online-cybersecurity' %}
+          <a href="{{ site.baseurl }}/summer-online.html" class="text-white text-decoration-none ms-1">&times;</a>
+        {% elsif page.url contains '/fall-online-cybersecurity' %}
+          <a href="{{ site.baseurl }}/fall-online.html" class="text-white text-decoration-none ms-1">&times;</a>
+        {% elsif page.url contains '/all-online-cybersecurity' %}
+          <a href="{{ site.baseurl }}/all-online.html" class="text-white text-decoration-none ms-1">&times;</a>
+        {% endif %}
+
+      {% else %}
+        {%- comment -%} remove Cybersec only {%- endcomment -%}
+        {% if page.url contains '/summer-cybersecurity' %}
+          <a href="{{ site.baseurl }}/summer.html" class="text-white text-decoration-none ms-1">&times;</a>
+        {% elsif page.url contains '/fall-cybersecurity' %}
+          <a href="{{ site.baseurl }}/fall.html" class="text-white text-decoration-none ms-1">&times;</a>
+        {% elsif page.url contains '/all-cybersecurity' %}
+          <a href="{{ site.baseurl }}/index.html" class="text-white text-decoration-none ms-1">&times;</a>
+        {% endif %}
+      {% endif %}
+
+    </span>
+    {% endif %}
+
+    {% comment %} Clear All if both present {% endcomment %}
+    {% if page.url contains 'online' and page.url contains 'cybersecurity' %}
+    <a
+            href="{% if page.url contains '/summer' %}{{ site.baseurl }}/summer.html{% elsif page.url contains '/fall' %}{{ site.baseurl }}/fall.html{% else %}{{ site.baseurl }}/index.html{% endif %}"
+            class="btn btn-sm btn-outline-secondary ms-2"
+    >
+        Clear All
+    </a>
+    {% endif %}
+</div>
+
 
 <script>
     function handleTermChange(select) {

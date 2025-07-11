@@ -1,12 +1,14 @@
 ---
 layout: default
 title: Summer Courses
-permalink: /all-summer.html
+permalink: /summer.html
+
+semester: summer
+modality:
+track:
 ---
 
 {% include top_controls.html %}
-
-<h2 class="mt-4">Summer Courses</h2>
 
 <div class="container-fluid">
   <div class="row row-cols-1 row-cols-md-4 g-4">
