@@ -144,6 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let html = `<div class="row row-cols-1 row-cols-md-4 g-4">`;
         semesters.forEach(sem => {
             if (plan[sem].length === 0) return;
+            const semesterCredits = plan[sem].reduce((sum, c) => sum + (parseInt(c.credits, 10) || 0), 0);
             html += `<div class="col"><div class="card h-100 d-flex flex-column">`;
             html += `<div class="card-body flex-grow-0 d-flex align-items-end" style="height: 70px;">
                         <h5 class="card-title text-center w-100 border-bottom pb-2 m-0">${sem}</h5>
@@ -153,13 +154,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 html += `<div class="mb-2">
                     <strong>${c.title}</strong> 
                     <span class="badge bg-${
-                    c.status === 'Taken' ? 'secondary' :
-                        c.status === 'Enrolled' ? 'primary' : 'success'
-                }">${c.status}</span><br/>
+                    c.status === 'Taken' ? 'success' :
+                        c.status === 'Enrolled' ? 'primary' :
+                            'secondary'
+                }">${c.status}</span>
+                    <br/>
                     <small>${c.code}${c.credits ? ' • ' + c.credits + ' credits' : ''}</small>
                 </div>`;
             });
-            html += `</div></div></div>`;
+            html += `</div>`;
+            // Card footer for semester credit total
+            html += `<div class="card-footer bg-light text-end fw-bold small align-items-center justify-content-between d-flex">
+                Total Credits: ${semesterCredits}
+            </div>`;
+
+            html += `</div></div>`;
         });
         html += `</div>`;
         planView.innerHTML = html;
@@ -167,3 +176,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     renderPlan(plan, semesters);
 });
+
+document.getElementById('print-plan-btn').addEventListener('click', function() {
+    window.print();
+});
+

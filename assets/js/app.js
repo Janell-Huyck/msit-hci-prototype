@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .forEach(btn => btn.remove());
     }
     function enableEnrollButton(code, sem) {
+        if (!sem) return;
+
         const card = document.querySelector(`.card[data-code="${code}"][data-semester="${sem}"]`);
         if (!card || card.querySelector('.enroll-btn')) return;
 

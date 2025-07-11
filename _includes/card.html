@@ -18,23 +18,23 @@
         <p class="mb-1"><strong> {{ include.code }}</strong></p>
         <p class="mb-1">{{ include.semesters | join: ", " }}</p>
         <div class="enroll-btn-container">
-              {% if include.taken %}
-            <i
-                    class="bi bi-check-circle-fill text-success position-absolute end-0 top-50 translate-middle-y me-3 fs-4"
-                    aria-hidden="true"
-            ></i>
-            <span class="text-success fw-bold small me-2">
-                Taken {{ include.taken }}
-            </span>
+            {% if include.taken %}
+                <i
+                        class="bi bi-check-circle-fill text-success position-absolute end-0 top-50 translate-middle-y me-3 fs-4"
+                        aria-hidden="true"
+                ></i>
+                <span class="text-success fw-bold small me-2">
+                    Taken {{ include.taken }}
+                </span>
             {% elsif page.semester %}
-            <a
-                    href="#"
-                    class="btn btn-primary btn-sm enroll-btn px-2"
-                    data-code="{{ include.code }}"
-                    data-semester="{{ page.semester }}"
-            >
-                Enroll
-            </a>
+                <a
+                        href="#"
+                        class="btn btn-primary btn-sm enroll-btn px-2"
+                        data-code="{{ include.code }}"
+                        data-semester="{{ page.semester }}"
+                >
+                    Enroll
+                </a>
             {% endif %}
         </div>
 
