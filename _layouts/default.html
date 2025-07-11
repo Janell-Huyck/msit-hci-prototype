@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,47 +23,113 @@
             href="{{ '/assets/css/custom.css' | relative_url }}"
     />
 </head>
+<body>
+{% include header.html %}
 
-    <body>
-        {% include header.html %}
+<main class="container mt-4">
+    <!-- Toast container (Bootstrap) -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11;">
+        <div
+                id="enrollToast"
+                class="toast align-items-center"
+                role="alert"
+                aria-live="assertive"
+        >
+            <div class="d-flex">
+                <div class="toast-body"></div>
+                <button
+                        type="button"
+                        class="btn-close me-2 m-auto"
+                        data-bs-dismiss="toast"
+                ></button>
+            </div>
+        </div>
+    </div>
 
-        <main class="container mt-4">
-            {{ content }}
-        </main>
+    {{ content }}
+</main>
 
-        <!-- Bootstrap JS Bundle (includes Popper.js) -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap JS Bundle (includes Popper.js) -->
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+></script>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                document.querySelectorAll('.dropdown-submenu > .dropdown-toggle').forEach(function (toggle) {
-                    toggle.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        e.stopPropagation();
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const toastEl   = document.getElementById('enrollToast');
+        const toastBody = toastEl.querySelector('.toast-body');
 
-                        const parent = toggle.parentElement;
-
-                        // Toggle only this submenu
-                        if (parent.classList.contains('show')) {
-                            parent.classList.remove('show');
-                        } else {
-                            // Close other submenus
-                            document.querySelectorAll('.dropdown-submenu').forEach(function (submenu) {
-                                submenu.classList.remove('show');
-                            });
-
-                            parent.classList.add('show');
-                        }
-                    });
-                });
-
-                // Close all submenus if user clicks elsewhere
-                document.addEventListener('click', function (e) {
-                    document.querySelectorAll('.dropdown-submenu').forEach(function (submenu) {
-                        submenu.classList.remove('show');
-                    });
+        // 1) Nested submenu toggle
+        document
+            .querySelectorAll('.dropdown-submenu > .dropdown-toggle')
+            .forEach(toggle => {
+                toggle.addEventListener('click', e => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const parent = toggle.parentElement;
+                    document
+                        .querySelectorAll('.dropdown-submenu')
+                        .forEach(sm => sm !== parent && sm.classList.remove('show'));
+                    parent.classList.toggle('show');
                 });
             });
-        </script>
-    </body>
+        document.addEventListener('click', () => {
+            document
+                .querySelectorAll('.dropdown-submenu')
+                .forEach(sm => sm.classList.remove('show'));
+        });
+
+        // 2) Enroll / Un-enroll with Toast
+        document.body.addEventListener('click', function(e) {
+            let code, btn2;
+
+            // Enroll
+            if (e.target.matches('.enroll-btn')) {
+                e.preventDefault();
+                code = e.target.dataset.code;
+                localStorage.setItem(`enrolled-${code}`, 'true');
+
+                // create the "Enrolled" button
+                btn2 = document.createElement('button');
+                btn2.type = 'button';
+                btn2.className = 'btn btn-success btn-sm enrolled-badge';
+                btn2.dataset.code = code;
+                btn2.textContent = 'Enrolled';
+
+                e.target.replaceWith(btn2);
+
+                toastBody.textContent = `Enrolled in ${code}`;
+                new bootstrap.Toast(toastEl).show();
+            }
+
+            // Un-enroll
+            else if (e.target.matches('.enrolled-badge')) {
+                code = e.target.dataset.code;
+                localStorage.removeItem(`enrolled-${code}`);
+
+                // swap back to Enroll link
+                btn2 = document.createElement('a');
+                btn2.href = '#';
+                btn2.className = 'btn btn-primary btn-sm enroll-btn';
+                btn2.dataset.code = code;
+                btn2.textContent = 'Enroll';
+
+                e.target.replaceWith(btn2);
+
+                toastBody.textContent = `Un-enrolled from ${code}`;
+                new bootstrap.Toast(toastEl).show();
+            }
+        });
+
+        // 3) Hydrate stored enrollments
+        document.querySelectorAll('.enroll-btn').forEach(btn => {
+            const code = btn.dataset.code;
+            if (localStorage.getItem(`enrolled-${code}`) === 'true') {
+                btn.click();
+            }
+        });
+    });
+</script>
+
+</body>
 </html>
