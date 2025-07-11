@@ -240,7 +240,7 @@ non_it_electives:
     - Fall
     description: Introduces AI concepts including search, logic, planning, and machine learning.
     teacher: Dr. Maya Singh
-    taken:
+    taken: true
 
   - title: Machine Learning
     code: CS6037
