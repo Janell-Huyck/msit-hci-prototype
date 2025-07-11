@@ -10,7 +10,7 @@ core:
       - Summer
     description: Introduces graduate students to current research and professional practices in IT.
     teacher: Dr. Karen Hill
-    taken: Spring 2024
+    taken: Fall 2024
 
   - title: Information Technology Research Methods
     code: IT7010C
@@ -23,7 +23,7 @@ core:
       - Summer
     description: Covers qualitative and quantitative research techniques applicable to IT fields.
     teacher: Dr. Omar Chen
-    taken: Spring 2024
+    taken: Spring 2025
 
   - title: Human Computer Interaction and Usability
     code: IT7040C
@@ -76,7 +76,7 @@ it_electives:
       - Summer
     description: Introduces foundational cybersecurity principles, threat models, and risk mitigation strategies.
     teacher: Dr. Alan Tate
-    taken: Summer 2024
+    taken: Fall 2024
 
   - title: Enterprise Security and Forensics
     code: IT7021C
@@ -88,7 +88,7 @@ it_electives:
       - Summer
     description: Covers enterprise network protection and forensic analysis tools for threat identification.
     teacher: Dr. Nina Zhao
-    taken: Summer 2024
+    taken: Spring 2025
 
   - title: Technologies for Mobile Applications
     code: IT7024C
@@ -240,7 +240,7 @@ non_it_electives:
     - Fall
     description: Introduces AI concepts including search, logic, planning, and machine learning.
     teacher: Dr. Maya Singh
-    taken: Fall 2024
+    taken:
 
   - title: Machine Learning
     code: CS6037
