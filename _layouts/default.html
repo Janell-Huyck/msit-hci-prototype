@@ -58,7 +58,8 @@
     window._msitCourses = {{ site.data.courses | jsonify }};
     window._currentSemester = "{{ page.semester | default: '' }}";
 </script>
-<script src="{{ '/assets/js/app.js' | relative_url }}"></script>
-
+{% if page.js %}
+    <script src="{{ '/assets/js/' | append: page.js | relative_url }}"></script>
+{% endif %}
 </body>
 </html>

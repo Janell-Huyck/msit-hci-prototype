@@ -10,7 +10,7 @@ core:
       - Summer
     description: Introduces graduate students to current research and professional practices in IT.
     teacher: Dr. Karen Hill
-    taken: true
+    taken: Spring 2024
 
   - title: Information Technology Research Methods
     code: IT7010C
@@ -23,7 +23,7 @@ core:
       - Summer
     description: Covers qualitative and quantitative research techniques applicable to IT fields.
     teacher: Dr. Omar Chen
-    taken: true
+    taken: Spring 2024
 
   - title: Human Computer Interaction and Usability
     code: IT7040C
@@ -76,7 +76,7 @@ it_electives:
       - Summer
     description: Introduces foundational cybersecurity principles, threat models, and risk mitigation strategies.
     teacher: Dr. Alan Tate
-    taken: true
+    taken: Summer 2024
 
   - title: Enterprise Security and Forensics
     code: IT7021C
@@ -88,7 +88,7 @@ it_electives:
       - Summer
     description: Covers enterprise network protection and forensic analysis tools for threat identification.
     teacher: Dr. Nina Zhao
-    taken: true
+    taken: Summer 2024
 
   - title: Technologies for Mobile Applications
     code: IT7024C
@@ -198,7 +198,7 @@ it_electives:
     code: IT7039
     modality: Online
     track: Flexible
-    credits: "1-6"
+    credits: 1-6
     semesters:
       - Fall
       - Spring
@@ -240,7 +240,7 @@ non_it_electives:
     - Fall
     description: Introduces AI concepts including search, logic, planning, and machine learning.
     teacher: Dr. Maya Singh
-    taken: true
+    taken: Fall 2024
 
   - title: Machine Learning
     code: CS6037
@@ -263,7 +263,7 @@ non_it_electives:
     - Summer
     description: Applies statistical methods and R programming to real-world datasets.
     teacher: Dr. Olivia Chen
-    taken: true
+    taken: Spring 2025
 
   - title: Intelligent Data Analysis
     code: CS6052
@@ -336,7 +336,7 @@ non_it_electives:
     code: HI7071
     modality: Online
     track: Health
-    credits: "2-3"
+    credits: 2-3
     semesters:
       - Spring
     description: Introduces data analysis techniques and platforms used in healthcare data science.

@@ -29,19 +29,22 @@ document.addEventListener('DOMContentLoaded', function() {
     function enableEnrollButton(code, sem) {
         const card = document.querySelector(`.card[data-code="${code}"][data-semester="${sem}"]`);
         if (!card || card.querySelector('.enroll-btn')) return;
+
+        // Find the new placement for the Enroll button
+        const btnContainer = card.querySelector('.enroll-btn-container');
+        if (!btnContainer) return; // Defensive: don't insert if missing
+
+        // Create button
         const btn = document.createElement('a');
         btn.href = '#';
-        btn.className = 'btn btn-primary btn-sm enroll-btn';
+        btn.className = 'btn btn-primary btn-sm enroll-btn px-2';
         btn.dataset.code = code;
+        btn.dataset.semester = sem;
         btn.textContent = 'Enroll';
-        const header = card.querySelector('.card-body .d-flex');
-        const collapse = header ? header.querySelector('[data-bs-toggle="collapse"]') : null;
-        // If header and collapse exist, insert before collapse. Otherwise, append at end.
-        if (header && collapse) {
-            header.insertBefore(btn, collapse);
-        } else if (header) {
-            header.appendChild(btn);
-        }
+
+        // Insert button
+        btnContainer.innerHTML = ''; // In case of stale content
+        btnContainer.appendChild(btn);
     }
 
     // 3) Click handler for Enroll & Un-enroll
@@ -144,16 +147,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 const courseCard = document.createElement('div');
                 courseCard.className = 'card mb-2 position-relative';
                 courseCard.innerHTML = `
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <h5 class="card-title mb-0">${course.title}</h5>
-                            <button type="button" class="btn btn-sm btn-danger unenroll-btn" data-code="${course.code}">
-                                Un-enroll
-                            </button>
-                        </div>
-                        <p class="mb-1"><strong>${course.code}</strong></p>
-                        <p class="mb-1">${course.semesters.join(', ')}</p>
-                    </div>`;
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                      <h5 class="card-title mb-0">${course.title}</h5>
+                    </div>
+                    <p class="mb-1"><strong>${course.code}</strong></p>
+                    <p class="mb-1">${course.semesters.join(', ')}</p>
+                    <div class="mt-2">
+                      <button type="button" class="btn btn-danger btn-sm unenroll-btn" data-code="${course.code}">
+                        Un-enroll
+                      </button>
+                    </div>
+                  </div>
+                `;
                 wrapper.appendChild(courseCard);
             });
         });
@@ -170,19 +176,58 @@ document.addEventListener('DOMContentLoaded', function() {
         restoreAllEnrollButtons();
     }
 
+    // Find courses by code and semester
+    function getCourseObj(code, sem) {
+        // Flatten all courses from all categories
+        const allCourses = Object.values(window._msitCourses).flat();
+        // Find by code (and optionally by semester, if you want more precision)
+        return allCourses.find(c => c.code === code /* && c.semesters.includes(sem) */);
+    }
+
+    // Mark Enrolled classes as Enrolled
+    function markEnrolled(code, sem) {
+        const card = document.querySelector(`.card[data-code="${code}"][data-semester="${sem}"]`);
+        if (!card) return;
+        const container = card.querySelector('.enroll-btn-container');
+        if (!container) return;
+        container.innerHTML = `
+        <span class="btn btn-sm text-white bg-success enrolled-badge align-middle d-inline-flex align-items-center" style="font-size:1em;">
+          <i class="bi bi-person-check-fill me-1"></i>
+          Enrolled
+          <button type="button"
+            class="btn-close btn-close-white btn-sm ms-2 unenroll-btn align-middle"
+            aria-label="Un-enroll"
+            data-code="${code}"
+            data-semester="${sem}"
+            style="float:none; vertical-align:middle; margin-top:0;"
+          ></button>
+        </span>
+    `;
+
+    }
+
+    function getCourseByCode(code) {
+        const lists = Object.values(window._msitCourses);
+        for (const list of lists) {
+            const found = list.find(c => c.code === code);
+            if (found) return found;
+        }
+        return null;
+    }
+
     // Helper: restore all Enroll buttons for courses not currently enrolled
     function restoreAllEnrollButtons() {
-        // Find all course cards in the DOM that should have an Enroll button
-        // A course is eligible if it's not in localStorage (not enrolled)
-        // Loop over all visible course cards in the main columns
         document.querySelectorAll('.card[data-code][data-semester]').forEach(card => {
             const code = card.getAttribute('data-code');
             const sem = card.getAttribute('data-semester');
-            if (!localStorage.getItem(`enrolled-${code}`)) {
+            const course = getCourseByCode(code);
+            if (!localStorage.getItem(`enrolled-${code}`) && !(course && course.taken)) {
                 enableEnrollButton(code, sem);
             } else {
-                // Defensive: remove stray enroll buttons if they're there for enrolled courses
                 disableEnrollButtons(code);
+                if (localStorage.getItem(`enrolled-${code}`) && !(course && course.taken)) {
+                    markEnrolled(code, sem);
+                }
             }
         });
     }
