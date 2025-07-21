@@ -199,16 +199,6 @@
           {% endif %}
         </span>
     {% endif %}
-
-    {% comment %} Clear All if both present {% endcomment %}
-    {% if page.url contains 'online' or page.url contains 'cybersecurity' %}
-    <a
-            href="{% if page.url contains '/summer' %}{{ site.baseurl }}/summer.html{% elsif page.url contains '/fall' %}{{ site.baseurl }}/fall.html{% else %}{{ site.baseurl }}/index.html{% endif %}"
-            class="btn btn-sm btn-outline-secondary ms-2"
-    >
-        Clear All
-    </a>
-    {% endif %}
 </div>
 
 
