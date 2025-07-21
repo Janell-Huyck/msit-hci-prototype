@@ -104,3 +104,8 @@
 .dropdown-submenu.show > .dropdown-toggle::after {
     transform: rotate(180deg);
 }
+
+.badge {
+    font-size: 1.25rem;
+    padding: 0.4em 0.5em 0.4em 0.4em;   /* More padding for touch area */
+}

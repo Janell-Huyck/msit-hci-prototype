@@ -229,4 +229,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 5) On load: build enrollments and buttons appropriately
     renderEnrollments();
+
+    // Toggle chevron icon for collapsible course details
+    document.querySelectorAll('button[data-bs-toggle="collapse"]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            // Small delay to let aria-expanded update
+            setTimeout(() => {
+                const icon = btn.querySelector('.caret-icon');
+                if (!icon) return;
+                if (btn.getAttribute('aria-expanded') === 'true') {
+                    icon.classList.remove('bi-chevron-right');
+                    icon.classList.add('bi-chevron-down');
+                } else {
+                    icon.classList.remove('bi-chevron-down');
+                    icon.classList.add('bi-chevron-right');
+                }
+            }, 50);
+        });
+    });
 });

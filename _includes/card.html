@@ -10,7 +10,7 @@
                     data-bs-target="#{{ include.code | replace: '.', '-' }}-details"
                     aria-expanded="false"
                     aria-controls="{{ include.code | replace: '.', '-' }}-details">
-                <span class="caret-icon text-dark fs-2 ms-2" aria-hidden="true">▼</span>
+                <i class="bi bi-chevron-right caret-icon text-dark fs-2 ms-2" aria-hidden="true"></i>
             </button>
         </div>
 
@@ -45,7 +45,6 @@
             <p class="mb-1">{{ include.credits }} Credits</p>
             <p><strong>Instructor:</strong> {{ include.teacher }}</p>
             <p>{{ include.description }}</p>
-
         </div>
     </div>
 </div>
@@ -53,7 +52,6 @@
 <!-- CSS to rotate arrow when expanded -->
 <style>
     button[aria-expanded="true"] .caret-icon {
-        transform: rotate(180deg);
         transition: transform 0.2s ease-in-out;
     }
     .caret-icon {

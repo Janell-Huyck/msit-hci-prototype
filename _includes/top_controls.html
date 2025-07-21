@@ -113,7 +113,7 @@
                 <!-- All Terms -->
                 <option
                         value="{{ site.url }}{{ site.baseurl }}/{% include slug_for.html term='all' %}.html"
-                        {% if page.semester == nil or page.semester == '' %}selected{% endif %}
+                        {% if (page.semester == nil) or (page.semester =='') %}selected{% endif %}
                 >
                 All Terms
                 </option>
@@ -147,64 +147,61 @@
 <div class="mb-3" id="active-filters">
     {% comment %} Online badge {% endcomment %}
     {% if page.url contains 'online' %}
-    <span class="badge bg-primary me-1">
-      🌐 Online
+        <span class="badge bg-primary me-1">
+          🌐 Online
 
-      {% if page.url contains 'cybersecurity' %}
-        {%- comment -%} remove Online but keep Cybersecurity {%- endcomment -%}
-        {% if page.url contains '/summer-online-cybersecurity' %}
-          <a href="{{ site.baseurl }}/summer-cybersecurity.html" class="text-white text-decoration-none ms-1">&times;</a>
-        {% elsif page.url contains '/fall-online-cybersecurity' %}
-          <a href="{{ site.baseurl }}/fall-cybersecurity.html" class="text-white text-decoration-none ms-1">&times;</a>
-        {% elsif page.url contains '/all-online-cybersecurity' %}
-          <a href="{{ site.baseurl }}/all-cybersecurity.html" class="text-white text-decoration-none ms-1">&times;</a>
-        {% endif %}
+          {% if page.url contains 'cybersecurity' %}
+            {%- comment -%} remove Online but keep Cybersecurity {%- endcomment -%}
+            {% if page.url contains '/summer-online-cybersecurity' %}
+              <a href="{{ site.baseurl }}/summer-cybersecurity.html" class="text-white text-decoration-none ms-1"><i class="bi bi-x-lg fs-5 ms-3 mf-0"></i></a>
+            {% elsif page.url contains '/fall-online-cybersecurity' %}
+              <a href="{{ site.baseurl }}/fall-cybersecurity.html" class="text-white text-decoration-none ms-1"><i class="bi bi-x-lg fs-5 ms-3 mf-0"></i></a>
+            {% elsif page.url contains '/all-online-cybersecurity' %}
+              <a href="{{ site.baseurl }}/all-cybersecurity.html" class="text-white text-decoration-none ms-1"><i class="bi bi-x-lg fs-5 ms-3 mf-0"></i></a>
+            {% endif %}
 
-      {% else %}
-        {%- comment -%} remove Online only {%- endcomment -%}
-        {% if page.url contains '/summer-online' %}
-          <a href="{{ site.baseurl }}/summer.html" class="text-white text-decoration-none ms-1">&times;</a>
-        {% elsif page.url contains '/fall-online' %}
-          <a href="{{ site.baseurl }}/fall.html" class="text-white text-decoration-none ms-1">&times;</a>
-        {% elsif page.url contains '/all-online' %}
-          <a href="{{ site.baseurl }}/index.html" class="text-white text-decoration-none ms-1">&times;</a>
-        {% endif %}
-      {% endif %}
-
-    </span>
+          {% else %}
+            {%- comment -%} remove Online only {%- endcomment -%}
+            {% if page.url contains '/summer-online' %}
+              <a href="{{ site.baseurl }}/summer.html" class="text-white text-decoration-none ms-1"><i class="bi bi-x-lg fs-5 ms-3 mf-0"></i></a>
+            {% elsif page.url contains '/fall-online' %}
+              <a href="{{ site.baseurl }}/fall.html" class="text-white text-decoration-none ms-1"><i class="bi bi-x-lg fs-5 ms-3 mf-0"></i></a>
+            {% elsif page.url contains '/all-online' %}
+              <a href="{{ site.baseurl }}/index.html" class="text-white text-decoration-none ms-1"><i class="bi bi-x-lg fs-5 ms-3 mf-0"></i></a>
+            {% endif %}
+          {% endif %}
+        </span>
     {% endif %}
 
     {% comment %} Cybersecurity badge {% endcomment %}
     {% if page.url contains 'cybersecurity' %}
-    <span class="badge bg-primary me-1">
-      🔒 Cybersecurity
+        <span class="badge bg-primary me-1">
+          🔒 Cybersecurity
 
-      {% if page.url contains 'online' %}
-        {%- comment -%} remove Cybersec but keep Online {%- endcomment -%}
-        {% if page.url contains '/summer-online-cybersecurity' %}
-          <a href="{{ site.baseurl }}/summer-online.html" class="text-white text-decoration-none ms-1">&times;</a>
-        {% elsif page.url contains '/fall-online-cybersecurity' %}
-          <a href="{{ site.baseurl }}/fall-online.html" class="text-white text-decoration-none ms-1">&times;</a>
-        {% elsif page.url contains '/all-online-cybersecurity' %}
-          <a href="{{ site.baseurl }}/all-online.html" class="text-white text-decoration-none ms-1">&times;</a>
-        {% endif %}
-
-      {% else %}
-        {%- comment -%} remove Cybersec only {%- endcomment -%}
-        {% if page.url contains '/summer-cybersecurity' %}
-          <a href="{{ site.baseurl }}/summer.html" class="text-white text-decoration-none ms-1">&times;</a>
-        {% elsif page.url contains '/fall-cybersecurity' %}
-          <a href="{{ site.baseurl }}/fall.html" class="text-white text-decoration-none ms-1">&times;</a>
-        {% elsif page.url contains '/all-cybersecurity' %}
-          <a href="{{ site.baseurl }}/index.html" class="text-white text-decoration-none ms-1">&times;</a>
-        {% endif %}
-      {% endif %}
-
-    </span>
+          {% if page.url contains 'online' %}
+            {%- comment -%} remove Cybersec but keep Online {%- endcomment -%}
+            {% if page.url contains '/summer-online-cybersecurity' %}
+              <a href="{{ site.baseurl }}/summer-online.html" class="text-white text-decoration-none ms-1"><i class="bi bi-x-lg fs-5 ms-3 mf-0"></i></a>
+            {% elsif page.url contains '/fall-online-cybersecurity' %}
+              <a href="{{ site.baseurl }}/fall-online.html" class="text-white text-decoration-none ms-1"><i class="bi bi-x-lg fs-5 ms-3 mf-0"></i></a>
+            {% elsif page.url contains '/all-online-cybersecurity' %}
+              <a href="{{ site.baseurl }}/all-online.html" class="text-white text-decoration-none ms-1"><i class="bi bi-x-lg fs-5 ms-3 mf-0"></i></a>
+            {% endif %}
+          {% else %}
+            {%- comment -%} remove Cybersec only {%- endcomment -%}
+            {% if page.url contains '/summer-cybersecurity' %}
+              <a href="{{ site.baseurl }}/summer.html" class="text-white text-decoration-none ms-1"><i class="bi bi-x-lg fs-5 ms-3 mf-0"></i></a>
+            {% elsif page.url contains '/fall-cybersecurity' %}
+              <a href="{{ site.baseurl }}/fall.html" class="text-white text-decoration-none ms-1"><i class="bi bi-x-lg fs-5 ms-3 mf-0"></i></a>
+            {% elsif page.url contains '/all-cybersecurity' %}
+              <a href="{{ site.baseurl }}/index.html" class="text-white text-decoration-none ms-1"><i class="bi bi-x-lg fs-5 ms-3 mf-0"></i></a>
+            {% endif %}
+          {% endif %}
+        </span>
     {% endif %}
 
     {% comment %} Clear All if both present {% endcomment %}
-    {% if page.url contains 'online' and page.url contains 'cybersecurity' %}
+    {% if page.url contains 'online' or page.url contains 'cybersecurity' %}
     <a
             href="{% if page.url contains '/summer' %}{{ site.baseurl }}/summer.html{% elsif page.url contains '/fall' %}{{ site.baseurl }}/fall.html{% else %}{{ site.baseurl }}/index.html{% endif %}"
             class="btn btn-sm btn-outline-secondary ms-2"
