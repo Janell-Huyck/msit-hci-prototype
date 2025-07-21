@@ -2,20 +2,38 @@
     <label for="term-select" class="form-label visually-hidden">Select term</label>
 
     <div id="term-select" class="dropdown">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="termDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            {{ page.semester | capitalize | default: 'All Terms' }}
+        <button
+                class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                id="termDropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+            {% if page.semester == 'summer' %}
+            Summer 2025
+            {% elsif page.semester == 'fall' %}
+            Fall 2025
+            {% else %}
+            All Terms
+            {% endif %}
         </button>
         <ul class="dropdown-menu" aria-labelledby="termDropdown">
             <li>
-                <a class="dropdown-item {% unless page.semester %}active{% endunless %}" href="{{ site.baseurl }}/index.html">All Terms</a>
+                <a class="dropdown-item {% unless page.semester %}active{% endunless %}" href="{{ site.baseurl }}/index.html">
+                    All Terms
+                </a>
             </li>
             <li>
-                <a class="dropdown-item {% if page.semester == 'summer' %}active{% endif %}" href="{{ site.baseurl }}/summer.html">Summer 2025</a>
+                <a class="dropdown-item {% if page.semester == 'summer' %}active{% endif %}" href="{{ site.baseurl }}/summer.html">
+                    Summer 2025
+                </a>
             </li>
             <li>
-                <a class="dropdown-item {% if page.semester == 'fall' %}active{% endif %}" href="{{ site.baseurl }}/fall.html">Fall 2025</a>
+                <a class="dropdown-item {% if page.semester == 'fall' %}active{% endif %}" href="{{ site.baseurl }}/fall.html">
+                    Fall 2025
+                </a>
             </li>
         </ul>
     </div>
+
 
 </div>
