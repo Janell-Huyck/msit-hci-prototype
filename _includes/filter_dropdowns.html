@@ -1,0 +1,95 @@
+<!-- Filter dropdowns: Modality, Track, Professor, Day of Week -->
+<div class="d-flex gap-4">
+
+    <!-- Modality Filter -->
+    <div class="dropdown">
+        <button class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                id="modalityMenuButton"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+            Modality
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="modalityMenuButton">
+            {% assign base_term = page.semester | default: 'all' %}
+            {% capture slug_online %}
+            {{ base_term }}-online{% if page.track %}-{{ page.track }}{% endif %}
+            {% endcapture %}
+            <li>
+                <a class="dropdown-item {% if page.modality == 'online' %}active{% endif %}"
+                   href="{{ site.baseurl }}/{{ slug_online | strip }}.html">
+                    Online
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">
+                    In-person
+                </a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li>
+                <a class="dropdown-item text-danger" href="{{ site.baseurl }}/{{ base_term }}{% if page.track %}-{{ page.track }}{% endif %}.html">
+                    Clear Modality Filter
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Track Filter -->
+    <div class="dropdown">
+        <button class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                id="trackMenuButton"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+            Track
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="trackMenuButton">
+            {% capture slug_cyber %}
+            {{ base_term }}{% if page.modality %}-{{ page.modality }}{% endif %}-cybersecurity
+            {% endcapture %}
+            <li>
+                <a class="dropdown-item {% if page.track == 'cybersecurity' %}active{% endif %}"
+                   href="{{ site.baseurl }}/{{ slug_cyber | strip }}.html">
+                    Cybersecurity
+                </a>
+            </li>
+            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Infrastructure</a></li>
+            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Mobile Dev</a></li>
+            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">HCI</a></li>
+            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Data</a></li>
+            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Software Dev</a></li>
+            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Networking</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li>
+                <a class="dropdown-item text-danger" href="{{ site.baseurl }}/{{ base_term }}{% if page.modality %}-{{ page.modality }}{% endif %}.html">
+                    Clear Track Filter
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Professor Filter -->
+    <div class="dropdown">
+        <button class="btn btn-outline-secondary dropdown-toggle"
+                type="button"
+                id="profMenuButton"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+            Professor
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="profMenuButton">
+            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">(Not in demo)</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li>
+                <a class="dropdown-item text-danger disabled" href="#">Clear Professor Filter</a>
+            </li>
+        </ul>
+    </div>
+</div>

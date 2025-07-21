@@ -1,0 +1,33 @@
+<div class="d-flex px-4">
+    <label for="term-select" class="form-label visually-hidden">Select term</label>
+
+    <select
+            id="term-select"
+            class="btn btn-outline-secondary dropdown-toggle"
+            onchange="handleTermChange(this)"
+    >
+        <!-- All Terms -->
+        <option
+                value="{{ site.url }}{{ site.baseurl }}/{% include slug_for.html term='all' %}.html"
+                {% if (page.semester == nil) or (page.semester =='') %}selected{% endif %}
+        >
+            All Terms
+        </option>
+
+        <!-- Summer 2025 -->
+        <option
+                value="{{ site.url }}{{ site.baseurl }}/{% include slug_for.html term='summer' %}.html"
+                {% if page.semester =='summer' %}selected{% endif %}
+        >
+            Summer 2025
+        </option>
+
+        <!-- Fall 2025 -->
+        <option
+                value="{{ site.url }}{{ site.baseurl }}/{% include slug_for.html term='fall' %}.html"
+                {% if page.semester =='fall' %}selected{% endif %}
+        >
+            Fall 2025
+        </option>
+    </select>
+</div>

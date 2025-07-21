@@ -1,150 +1,29 @@
 <div class="container-fluid my-5">
-    <div class="row g-4 align-items-center justify-content-between">
-        <div class="col-md-4 d-flex align-items-center">
-            <input type="text" class="form-control" placeholder="Search courses..." />
-            <button class="btn btn-outline-secondary">🔍</button>
-        </div>
-
-        <!-- Filter dropdown -->
-        <div class="col-auto">
-            <div class="dropdown">
-                <button
-                        class="btn btn-outline-secondary dropdown-toggle"
-                        type="button"
-                        id="filterMenuButton"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                >
-                    ⚙️ Filter
-                </button>
-
-                <ul class="dropdown-menu" aria-labelledby="filterMenuButton">
-
-                    <!-- Modality -->
-                    <li class="dropdown dropdown-submenu">
-                        <a class="dropdown-item dropdown-toggle" href="#">Modality</a>
-                        <ul class="dropdown-menu">
-
-                            {% comment %}
-                                Build “online” link slug:
-                                term = page.semester (or “all” if blank)
-                                modality = online
-                                track = page.track (if any)
-                            {% endcomment %}
-                            {% assign base_term = page.semester | default: 'all' %}
-                            {% capture slug_online %}
-                                {{ base_term }}-online{% if page.track %}-{{ page.track }}{% endif %}
-                            {% endcapture %}
-                            <li>
-                                <a
-                                        class="dropdown-item {% if page.modality == 'online' %}active{% endif %}"
-                                        href="{{ site.baseurl }}/{{ slug_online | strip }}.html"
-                                >
-                                    Online
-                                </a>
-                            </li>
-
-                            <!-- In-person disabled -->
-                            <li>
-                                <a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">
-                                    In-person
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <!-- Track -->
-                    <li class="dropdown dropdown-submenu">
-                        <a class="dropdown-item dropdown-toggle" href="#">MSIT Track</a>
-                        <ul class="dropdown-menu">
-
-                            {% comment %}
-                            Build “cybersecurity” link slug:
-                            term = page.semester (or “all”)
-                            modality = page.modality (if any)
-                            track = cybersecurity
-                            {% endcomment %}
-                            {% capture slug_cyber %}
-                            {{ base_term }}{% if page.modality %}-{{ page.modality }}{% endif %}-cybersecurity
-                            {% endcapture %}
-                            <li>
-                                <a
-                                        class="dropdown-item {% if page.track == 'cybersecurity' %}active{% endif %}"
-                                        href="{{ site.baseurl }}/{{ slug_cyber | strip }}.html"
-                                >
-                                    Cybersecurity
-                                </a>
-                            </li>
-
-                            {% comment %}
-                            Other tracks disabled in demo...
-                            {% endcomment %}
-                            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Infrastructure</a></li>
-                            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Mobile Dev</a></li>
-                            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">HCI</a></li>
-                            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Data</a></li>
-                            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Software Dev</a></li>
-                            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">Networking</a></li>
-
-                        </ul>
-                    </li>
-
-                    <!-- Professor placeholder -->
-                    <li class="dropdown dropdown-submenu">
-                        <a class="dropdown-item dropdown-toggle" href="#">Professor</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item disabled" href="#" tabindex="-1" aria-disabled="true">(Not in demo)</a></li>
-                        </ul>
-                    </li>
-                </ul>
+    <div class="d-flex align-items-center justify-content-between">
+        <div class="col-md-5">
+            <div class="d-flex align-items-center">
+                <input type="text" class="form-control me-2" placeholder="Search courses..." />
+                <button class="btn btn-outline-secondary">🔍</button>
             </div>
         </div>
 
-        <!-- Term selection -->
-        <div class="col-md-2">
-            <label for="term-select" class="form-label visually-hidden">Select term</label>
+        <div class="d-flex align-items-center px-4">
+            <!-- Filter dropdown -->
+            {% include filter_dropdowns.html %}
 
-            <select
-                    id="term-select"
-                    class="form-select"
-                    onchange="handleTermChange(this)"
-            >
-                <!-- All Terms -->
-                <option
-                        value="{{ site.url }}{{ site.baseurl }}/{% include slug_for.html term='all' %}.html"
-                        {% if (page.semester == nil) or (page.semester =='') %}selected{% endif %}
-                >
-                All Terms
-                </option>
+            <!-- Term selection -->
+            {% include term_selector.html %}
 
-                <!-- Summer 2025 -->
-                <option
-                        value="{{ site.url }}{{ site.baseurl }}/{% include slug_for.html term='summer' %}.html"
-                        {% if page.semester == 'summer' %}selected{% endif %}
-                >
-                Summer 2025
-                </option>
-
-                <!-- Fall 2025 -->
-                <option
-                        value="{{ site.url }}{{ site.baseurl }}/{% include slug_for.html term='fall' %}.html"
-                        {% if page.semester == 'fall' %}selected{% endif %}
-                >
-                Fall 2025
-                </option>
-            </select>
-        </div>
-
-        <!-- Export button -->
-        <div class="col-auto">
-            <a href="{{ site.url }}{{ site.baseurl }}/plan.html" class="btn btn-outline-secondary m2">Create Plan</a>
+            <!-- Create Plan button -->
+            <div class="d-flex justify-content-end">
+                <a href="{{ site.url }}{{ site.baseurl }}/plan.html" class="btn btn-outline-secondary m2">Create Plan</a>
+            </div>
         </div>
     </div>
 </div>
 
 <!-- Filter droplets -->
-<div class="mb-3" id="active-filters">
+<div class="mb-3 container-fluid" id="active-filters">
     {% comment %} Online badge {% endcomment %}
     {% if page.url contains 'online' %}
         <span class="badge bg-primary me-1">

@@ -71,6 +71,14 @@
     margin-bottom: 0.75rem;
 }
 
+#active-filters {
+    min-height: 2.7em;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.25em;
+}
+
 /* --- DROPDOWN SUBMENU STYLES (unchanged from your original) --- */
 .dropdown-submenu > .dropdown-menu {
     position: static;
