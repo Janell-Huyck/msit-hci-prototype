@@ -1,33 +1,21 @@
 <div class="d-flex px-4">
     <label for="term-select" class="form-label visually-hidden">Select term</label>
 
-    <select
-            id="term-select"
-            class="btn btn-outline-secondary dropdown-toggle"
-            onchange="handleTermChange(this)"
-    >
-        <!-- All Terms -->
-        <option
-                value="{{ site.url }}{{ site.baseurl }}/{% include slug_for.html term='all' %}.html"
-                {% if (page.semester == nil) or (page.semester =='') %}selected{% endif %}
-        >
-            All Terms
-        </option>
+    <div id="term-select" class="dropdown">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="termDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ page.semester | capitalize | default: 'All Terms' }}
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="termDropdown">
+            <li>
+                <a class="dropdown-item {% unless page.semester %}active{% endunless %}" href="{{ site.baseurl }}/index.html">All Terms</a>
+            </li>
+            <li>
+                <a class="dropdown-item {% if page.semester == 'summer' %}active{% endif %}" href="{{ site.baseurl }}/summer.html">Summer 2025</a>
+            </li>
+            <li>
+                <a class="dropdown-item {% if page.semester == 'fall' %}active{% endif %}" href="{{ site.baseurl }}/fall.html">Fall 2025</a>
+            </li>
+        </ul>
+    </div>
 
-        <!-- Summer 2025 -->
-        <option
-                value="{{ site.url }}{{ site.baseurl }}/{% include slug_for.html term='summer' %}.html"
-                {% if page.semester =='summer' %}selected{% endif %}
-        >
-            Summer 2025
-        </option>
-
-        <!-- Fall 2025 -->
-        <option
-                value="{{ site.url }}{{ site.baseurl }}/{% include slug_for.html term='fall' %}.html"
-                {% if page.semester =='fall' %}selected{% endif %}
-        >
-            Fall 2025
-        </option>
-    </select>
 </div>
